@@ -1,9 +1,7 @@
 import mongoose, { model, mongo } from "mongoose";
-
+import "dotenv/config";
 //Connet to MongoDB
-mongoose.connect(
-  "mongodb+srv://xennyirl:mongo123@cluster0.3h1bn.mongodb.net/Course_Selling_App"
-);
+mongoose.connect(process.env.MONGODB_URL);
 
 // Defining Schemas
 const AdminSchema = new mongoose.Schema({
