@@ -61,4 +61,19 @@ router.post("/courses/:courseID", userMiddleware, async (req, res) => {
   }
 });
 
+router.get("/purchasedCourses", userMiddleware, async (req, res) => {
+  try {
+    const user = await User.findOne({
+      username: req.headers.username,
+    });
+    // res.json({ user: user.purchasedCourses });
+    const courses = await Course.find({
+      _id: { $in: user.purchasedCourses },
+    });
+    res.json(courses);
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 export default router;
