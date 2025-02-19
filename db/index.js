@@ -1,4 +1,4 @@
-import mongoose, { model, mongo } from "mongoose";
+import mongoose from "mongoose";
 import "dotenv/config";
 //Connet to MongoDB
 mongoose.connect(process.env.MONGODB_URL);
