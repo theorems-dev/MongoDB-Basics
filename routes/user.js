@@ -53,7 +53,7 @@ router.post("/courses/:courseID", userMiddleware, async (req, res) => {
   try {
     await User.updateOne(
       { username }, // Finds the user by Username
-      { $push: { purchasedCourse: courseID } } // Pushes the courseID
+      { $push: { purchasedCourses: courseID } } // Pushes the courseID
     );
     res.json({ msg: "Course purchased successfully" });
   } catch (error) {
